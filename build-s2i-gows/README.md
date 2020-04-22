@@ -18,7 +18,7 @@ By default our simple [demo site](demo/index.html) will be deployed.
 
 GoWS is a webserver built to do nothing more than to serve static content web sites on the smallest possible footprint. This S2I-enabled image makes this one step easier by being able to stream that content straight into the image from source.
 
-This repo contains both a `Dockerfile` for building the image and a directory of [sample content](/build-s2i-gows/demo).
+This repo contains both a `Dockerfile` for building the image and a directory of [sample content](demo).
 
 ## Bill of Materials
 
@@ -31,16 +31,16 @@ The requirements of this image are simple. All you need are:
 ## OpenShift objects
 
 The openshift-applier will create the following OpenShift objects:
-* A Project named `s2i-gows` (see [files/projects/projects.yml](files/projects/projects.yml))
-* Three ImageStreams named `golang`, `busybox` and `gows` (see [files/imagestreams/template.yml](files/imagestreams/template.yml) and [files/builds/gows.yml](files/builds/gows.yml)).
-* Four BuildConfigs named `gows-build`, `gows-busybox`, `gows-s2i` and `gows` (see [files/builds/template.yml](files/builds/template.yml))
-* A Service named `gows` (see [files/deployments/template.yml](files/deployments/template.yml))
-* A Route named `gows` (see [files/deployments/template.yml](files/deployments/template.yml))
+* A Project named `s2i-gows` 
+* Three ImageStreams named `golang`, `busybox` and `gows` (see [.openshift/templates/imagestreams/template.yml](.openshift/templates/imagestreams/template.yml) and [.openshift/templates/builds/template.yml](.openshift/templates/builds/template.yml)).
+* Four BuildConfigs named `gows-build`, `gows-busybox`, `gows-s2i` and `gows` (see [.openshift/templates/builds/template.yml](.openshift/templates/builds/template.yml))
+* A Service named `gows` (see [.openshift/templates/deployments/template.yml](.openshift/templates/deployments/template.yml))
+* A Route named `gows` (see [.openshift/templates/deployments/template.yml](.openshift/templates/deployments/template.yml))
 
 ## Environment Variables
 
 ### Openshift Build Vars
-The build supports a few environment variables to specify the source of the site. The default values can be changed by setting the variables below in the [params file](files/builds/params).
+The build supports a few environment variables to specify the source of the site. The default values can be changed by setting the variables below in the [seed hosts file](.applier/group_vars/seed-hosts.yml).
 
 | Variable Name | Default Value | Description |
 | ------------- | ------------- | ----------- |
