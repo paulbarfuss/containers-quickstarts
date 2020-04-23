@@ -10,14 +10,15 @@ LABEL com.redhat.component="jenkins-slave-image-mgmt" \
       io.openshift.tags="openshift,jenkins,slave,copy"
 USER root
 
-RUN INSTALL_PKGS="skopeo podman atomic openscap-utils" && \
-    if [ -z $RHEL_RELEASEVER ] ; then RHEL_RELEASEVER=7Server ; fi && \
-    yum install -y --setopt=tsflags=nodocs \
-      --enablerepo=rhel-7-server-rpms \
-      --enablerepo=rhel-7-server-extras-rpms \
-      --releasever=${RHEL_RELEASEVER} \
-      $INSTALL_PKGS && \
-    rpm -V $INSTALL_PKGS && \
-    yum clean all
+RUN yum repolist
+#RUN INSTALL_PKGS="skopeo podman atomic openscap-utils" && \
+#    if [ -z $RHEL_RELEASEVER ] ; then RHEL_RELEASEVER=7Server ; fi && \
+#    yum install -y --setopt=tsflags=nodocs \
+#      --enablerepo=rhel-7-server-rpms \
+#      --enablerepo=rhel-7-server-extras-rpms \
+#      --releasever=${RHEL_RELEASEVER} \
+#      $INSTALL_PKGS && \
+#    rpm -V $INSTALL_PKGS && \
+#    yum clean all
 
 USER 1001
