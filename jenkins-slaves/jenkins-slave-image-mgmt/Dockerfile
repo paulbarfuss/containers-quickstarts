@@ -10,7 +10,7 @@ LABEL com.redhat.component="jenkins-slave-image-mgmt" \
       io.openshift.tags="openshift,jenkins,slave,copy"
 USER root
 
-RUN INSTALL_PKGS="skopeo docker openscap-utils" && \
+RUN INSTALL_PKGS="skopeo docker atomic openscap-utils" && \
     if [ -z $RHEL_RELEASEVER ] ; then RHEL_RELEASEVER=7Server ; fi && \
     yum install -y --setopt=tsflags=nodocs \
       --enablerepo=rhel-7-server-rpms \
