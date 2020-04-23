@@ -60,11 +60,11 @@ parameters:
 - description: Git source URI for application
   name: SOURCE_REPOSITORY_URL
   required: true
-  value: https://github.com/redhat-cop/containers-quickstarts.git
+  value: https://github.com/paulbarfuss/containers-quickstarts.git
 - description: Git branch/tag reference
   name: SOURCE_REPOSITORY_REF
   required: false
-  value: master
+  value: openscap
 - description: Path within Git project to build; empty for root project directory.
   name: CONTEXT_DIR
   required: false

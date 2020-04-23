@@ -18,8 +18,6 @@ RUN INSTALL_PKGS="skopeo podman atomic openscap-utils" && \
       --releasever=${RHEL_RELEASEVER} \
       $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
-    yum clean all && \
-    echo 63362 > /proc/sys/user/max_user_namespaces
-
+    yum clean all
 
 USER 1001
